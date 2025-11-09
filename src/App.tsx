@@ -20,6 +20,7 @@ import { BookAppointmentPage } from './pages/customer/BookAppointmentPage';
 import { MyBookingsPage } from './pages/customer/MyBookingsPage';
 import { BookingDetailsPage } from './pages/customer/BookingDetailsPage';
 import { ProfilePage } from './pages/customer/ProfilePage';
+import { CustomerReviewsPage } from './pages/customer/CustomerReviewsPage';
 
 // Agent pages
 import { AgentDashboardPage } from './pages/agent/AgentDashboardPage';
@@ -31,6 +32,9 @@ import { AgentAppointmentsPage } from './pages/agent/AgentAppointmentsPage';
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage';
 import { AgentApprovalsPage } from './pages/admin/AgentApprovalsPage';
 import { AdminPropertiesPage } from './pages/admin/AdminPropertiesPage';
+import { UserManagementPage } from './pages/admin/UserManagementPage';
+import { AppointmentManagementPage } from './pages/admin/AppointmentManagementPage';
+import { ReviewModerationPage } from './pages/admin/ReviewModerationPage';
 
 function App() {
   const initializeAuth = useAuthStore(state => state.initializeAuth);
@@ -102,7 +106,7 @@ function App() {
           path="/customer/reviews"
           element={
             <ProtectedRoute allowedRoles={['customer']}>
-              <ProfilePage />
+              <CustomerReviewsPage />
             </ProtectedRoute>
           }
         />
@@ -194,7 +198,7 @@ function App() {
           path="/admin/users"
           element={
             <ProtectedRoute allowedRoles={['admin']}>
-              <AgentApprovalsPage />
+              <UserManagementPage />
             </ProtectedRoute>
           }
         />
@@ -210,7 +214,7 @@ function App() {
           path="/admin/appointments"
           element={
             <ProtectedRoute allowedRoles={['admin']}>
-              <AdminDashboardPage />
+              <AppointmentManagementPage />
             </ProtectedRoute>
           }
         />
@@ -218,7 +222,7 @@ function App() {
           path="/admin/reviews"
           element={
             <ProtectedRoute allowedRoles={['admin']}>
-              <AdminDashboardPage />
+              <ReviewModerationPage />
             </ProtectedRoute>
           }
         />
