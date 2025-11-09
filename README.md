@@ -1,73 +1,155 @@
-# React + TypeScript + Vite
+# TES Real Estate Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A complete, fully functional real estate booking system with three distinct user roles (Customer, Agent, Admin) built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🎨 Design
+- Gold theme color (#D4AF37)
+- Mobile-first responsive design
+- Bottom navigation (< 1024px)
+- Sidebar navigation (≥ 1024px)
+- Clean, modern, professional UI
 
-## React Compiler
+### 👥 User Roles
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+#### Customer Portal
+- Browse and filter properties
+- View property details with photos and agent information
+- Book appointments (4-step wizard)
+- Manage bookings
+- Leave reviews after completed appointments
+- Profile management
 
-## Expanding the ESLint configuration
+#### Agent Portal
+- Dashboard with statistics
+- Property management (add, edit, delete)
+- Appointment management (confirm, complete)
+- Performance analytics
+- Agent approval workflow
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+#### Admin Portal
+- System overview dashboard
+- Agent approvals
+- Property approvals
+- User management
+- Review moderation
+- System statistics
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Frontend Framework:** React 18 + TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS v3
+- **Routing:** React Router v6
+- **State Management:** Zustand
+- **Form Handling:** React Hook Form + Zod
+- **Date Formatting:** date-fns
+- **Icons:** Lucide React
+- **Data Persistence:** localStorage
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Demo Credentials
+
+### Customer
+- Email: `hans@tesrealestate.com`
+- Password: `customer123`
+
+### Agent
+- Email: `juan@tesrealestate.com`
+- Password: `agent123`
+
+### Admin
+- Email: `admin@tesrealestate.com`
+- Password: `admin123`
+
+## Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── assets/           # Static assets
+├── components/       
+│   ├── auth/        # Authentication components
+│   ├── customer/    # Customer-specific components
+│   ├── agent/       # Agent-specific components
+│   ├── admin/       # Admin-specific components
+│   ├── shared/      # Reusable UI components
+│   └── layout/      # Layout components (Sidebar, Header, etc.)
+├── pages/           
+│   ├── auth/        # Login, Register, Forgot Password
+│   ├── customer/    # Customer portal pages
+│   ├── agent/       # Agent portal pages
+│   └── admin/       # Admin portal pages
+├── hooks/           # Custom React hooks
+├── store/           # Zustand stores
+├── services/        # API services and utilities
+├── utils/           # Helper functions and constants
+├── types/           # TypeScript type definitions
+├── App.tsx          # Main application component
+└── main.tsx         # Application entry point
+```
+
+## Key Features Implementation
+
+### Authentication
+- Role-based authentication and routing
+- Protected routes with role checks
+- localStorage-based session management
+
+### State Management
+- Zustand stores for auth, properties, appointments, reviews, and notifications
+- Centralized state with persistence to localStorage
+
+### Responsive Design
+- Mobile-first approach
+- Adaptive navigation (sidebar for desktop, bottom nav for mobile)
+- Responsive grids and layouts
+
+### Business Logic
+- Agent approval workflow (pending → active/rejected)
+- Property approval workflow (pending → active/rejected)
+- Appointment lifecycle (pending → confirmed → completed/cancelled)
+- Review system (only after completed appointments)
+- Automatic notifications for key actions
+
+## Demo Data
+
+The application includes 6 pre-configured properties:
+1. Modern Downtown Condo - Manila - ₱12M
+2. Luxury Beach House - Boracay - ₱35M
+3. Cozy Studio Apartment - Makati - ₱6M
+4. Family Home with Garden - Quezon City - ₱18M
+5. Penthouse with City View - BGC - ₱45M
+6. Suburban Townhouse - Alabang - ₱15M
+
+## Development
+
+This is a prototype application using localStorage for data persistence. In a production environment, you would:
+
+- Implement proper backend API
+- Add authentication with JWT/sessions
+- Use a real database (PostgreSQL, MongoDB, etc.)
+- Add proper security measures
+- Implement email notifications
+- Add file upload for property images
+- Add payment integration
+- Implement real-time notifications
+
+## License
+
+MIT
