@@ -1,4 +1,4 @@
-import { User, Property, Appointment, Review, Notification } from '../types';
+import type { User, Property, Appointment, Review, Notification } from '../types';
 
 const STORAGE_KEYS = {
   USERS: 'tes_users',

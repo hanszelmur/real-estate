@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Property } from '../types';
+import type { Property } from '../types';
 import { storageService } from '../services/storage';
 import { DEMO_PROPERTIES } from '../utils/constants';
 import { generateId } from '../utils/helpers';

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Review } from '../types';
+import type { Review } from '../types';
 import { storageService } from '../services/storage';
 import { generateId } from '../utils/helpers';
 

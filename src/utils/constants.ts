@@ -1,5 +1,4 @@
-import { User, Property } from '../types';
-import { generateId } from './helpers';
+import type { User, Property } from '../types';
 
 export const DEMO_USERS: User[] = [
   {

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { User } from '../types';
+import type { User } from '../types';
 import { storageService } from '../services/storage';
 import { DEMO_USERS } from '../utils/constants';
 import { generateId } from '../utils/helpers';

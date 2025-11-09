@@ -1,5 +1,4 @@
 import { useNotificationStore } from '../store/notificationStore';
-import { NotificationType } from '../types';
 
 export const notificationService = {
   // Customer books appointment → Notify agent
@@ -47,7 +46,7 @@ export const notificationService = {
   },
 
   // Agent submits property → Notify admin
-  notifyAdminNewProperty: (adminId: string, agentName: string, propertyTitle: string, propertyId: string) => {
+  notifyAdminNewProperty: (adminId: string, agentName: string, propertyTitle: string) => {
     useNotificationStore.getState().createNotification({
       userId: adminId,
       type: 'info',
@@ -58,7 +57,7 @@ export const notificationService = {
   },
 
   // Admin approves property → Notify agent
-  notifyAgentPropertyApproved: (agentId: string, propertyTitle: string, propertyId: string) => {
+  notifyAgentPropertyApproved: (agentId: string, propertyTitle: string) => {
     useNotificationStore.getState().createNotification({
       userId: agentId,
       type: 'success',
@@ -69,7 +68,7 @@ export const notificationService = {
   },
 
   // Admin rejects property → Notify agent
-  notifyAgentPropertyRejected: (agentId: string, propertyTitle: string, reason: string, propertyId: string) => {
+  notifyAgentPropertyRejected: (agentId: string, propertyTitle: string, reason: string) => {
     useNotificationStore.getState().createNotification({
       userId: agentId,
       type: 'error',

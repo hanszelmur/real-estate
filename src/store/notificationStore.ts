@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Notification } from '../types';
+import type { Notification } from '../types';
 import { storageService } from '../services/storage';
 import { generateId } from '../utils/helpers';
 

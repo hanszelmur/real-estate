@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Appointment } from '../types';
+import type { Appointment } from '../types';
 import { storageService } from '../services/storage';
 import { generateId } from '../utils/helpers';
 
